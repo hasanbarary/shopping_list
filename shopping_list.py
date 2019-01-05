@@ -1,6 +1,5 @@
 #!/bin/python3.4
-from help import print_help
-from list_append import append_list
+
 shopping_list=[]
 print_help()
 #print('test')
