@@ -1,7 +1,7 @@
 #!/bin/python3.4
 
 #Help Function
-def print_help():
+def menu():
     print("What should we use at the store ?\n")
     print("Enter 'DONE' to stop adding items")
     print("Enter 'HELP' to show all instruction in our app ")
@@ -17,11 +17,11 @@ def append_list(items,answer):
         
 #main
 items=[]
-print_help()
+menu()
 while True:
     answer = input().lower()
     if answer == 'help':
-        print_help()
+        menu()
     elif answer == 'done':
         break
     elif answer == 'show':
