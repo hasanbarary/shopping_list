@@ -8,15 +8,15 @@ def print_help():
     print("Enter 'SHOW' to show all items in our shopping list")
 
 #Apend Function 
-def append_list(shopping_list,answer):
-    if answer not in shopping_list:
-        shopping_list.append(answer)
+def append_list(items,answer):
+    if answer not in items:
+        items.append(answer)
         "{} Added Into List ".format(answer)
     else:
         "{} repeated".format(answer)
         
 #main
-shopping_list=[]
+items=[]
 print_help()
 while True:
     answer = input().lower()
@@ -25,6 +25,6 @@ while True:
     elif answer == 'done':
         break
     elif answer == 'show':
-        print(shopping_list)
+        print(items)
     else:
-        append_list(shopping_list,answer)
+        append_list(items,answer)
