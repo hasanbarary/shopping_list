@@ -1,4 +1,4 @@
-#!/usr/bin/python3.4
+#!/usr/bin/python3.6
 
 #Help Function
 def menu():
@@ -6,15 +6,13 @@ def menu():
     print("Enter 'DONE' to stop adding items")
     print("Enter 'HELP' to show all instruction in our app ")
     print("Enter 'SHOW' to show all items in our shopping list")
-
 #Apend Function 
 def append_list(items,answer):
     if answer not in items:
         items.append(answer)
-        "{} Added Into List ".format(answer)
+        print("you added {} into your list. Now you have {} items".format(answer,len(items)))
     else:
-        "{} repeated".format(answer)
-        
+        print("{} repeated".format(answer))
 #main
 items=[]
 menu()
