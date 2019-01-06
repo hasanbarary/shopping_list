@@ -9,7 +9,7 @@ def menu():
     print("Enter 'REMOVE' to remove item  in our shopping list")
     print("Enter 'EDIT' for edit item  in our shopping list\n")
 #Apend Function 
-def append_list(items,answer):
+def add_item(items,answer):
     if answer not in items:
         items.append(answer)
         print("you added {} into your list. Now you have {} items".format(answer,len(items)))
@@ -54,4 +54,4 @@ while True:
         answer = input("Enter your Item For Edit -->  ").lower()
         edit(items,answer)
     else:
-        append_list(items,answer)
+        add_item(items,answer)
