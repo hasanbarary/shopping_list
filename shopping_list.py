@@ -39,19 +39,23 @@ items=[]
 menu()
 while True:
     answer = input("Choose From Menu or Enter your Item -->").lower()
-    if answer == 'help':
-        menu()
-    elif answer == 'done':
-        break
-    elif answer == 'show':
-        print(items)
-    elif answer == 'remove':
-        answer = input("Enter your Item For Delete -->  ").lower()
-        remove_item(answer)
-    elif answer == '':
+    if not answer.isalpha():
+        print("Your input Not alpha or have a numeric character")
         continue
-    elif answer == 'edit':
-        answer = input("Enter your Item For Edit -->  ").lower()
-        edit_item(answer)
     else:
-        add_item(answer)
+        if answer == 'help':
+            menu()
+        elif answer == 'done':
+            break
+        elif answer == 'show':
+            print(items)
+        elif answer == 'remove':
+            answer = input("Enter your Item For Delete -->  ").lower()
+            remove_item(answer)
+        elif answer == '':
+            continue
+        elif answer == 'edit':
+            answer = input("Enter your Item For Edit -->  ").lower()
+            edit_item(answer)
+        else:
+            add_item(answer)
