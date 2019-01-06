@@ -29,7 +29,7 @@ def remove_item(items,answer):
                    print("Please Enter yes/no")
         else:
            print("{} not exist in your shopping list".format(answer))
-def edit(items,answer):
+def edit_item(items,answer):
        if answer in items:
            items[items.index(answer)]=input("Enter your changes for edit {} item -->".format(answer))
        else:
@@ -52,6 +52,6 @@ while True:
         continue
     elif answer == 'edit':
         answer = input("Enter your Item For Edit -->  ").lower()
-        edit(items,answer)
+        edit_item(items,answer)
     else:
         add_item(items,answer)
