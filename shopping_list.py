@@ -6,7 +6,7 @@ def menu():
     print("Enter 'DONE' to stop adding items")
     print("Enter 'HELP' to show all instruction in our app ")
     print("Enter 'SHOW' to show all items in our shopping list")
-    print("Enter 'REMOVE' to remove item  in our shopping list\n")
+    print("Enter 'REMOVE' to remove item  in our shopping list")
     print("Enter 'EDIT' for edit item  in our shopping list\n")
 #Apend Function 
 def append_list(items,answer):
@@ -17,10 +17,18 @@ def append_list(items,answer):
         print("{} repeated".format(answer))
 def remove_item(items,answer):
         if answer in items:
-            items.remove(answer)
-            print("{} deleted from your shopping list ".format(answer))
+            while True:
+                verify=input("are you sure to removing {} item yes/no --> ".format(answer)).lower()
+                if(verify == 'yes'): 
+                   items.remove(answer)
+                   print("{} deleted from your shopping list ".format(answer))
+                   break
+                elif (verify == 'no'):
+                   break
+                else:
+                   print("Please Enter yes/no")
         else:
-            print("{} not Exist.".format(answer))
+           print("{} not exist in your shopping list".format(answer))
 def edit(items,answer):
        if answer in items:
            items[items.index(answer)]=input("Enter your changes for edit {} item -->".format(answer))
