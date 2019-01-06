@@ -9,13 +9,13 @@ def menu():
     print("Enter 'REMOVE' to remove item  in our shopping list")
     print("Enter 'EDIT' for edit item  in our shopping list\n")
 #Apend Function 
-def add_item(items,answer):
+def add_item(answer):
     if answer not in items:
         items.append(answer)
         print("you added {} into your list. Now you have {} items".format(answer,len(items)))
     else:
         print("{} repeated".format(answer))
-def remove_item(items,answer):
+def remove_item(answer):
         if answer in items:
             while True:
                 verify=input("are you sure to removing {} item yes/no --> ".format(answer)).lower()
@@ -29,7 +29,7 @@ def remove_item(items,answer):
                    print("Please Enter yes/no")
         else:
            print("{} not exist in your shopping list".format(answer))
-def edit_item(items,answer):
+def edit_item(answer):
        if answer in items:
            items[items.index(answer)]=input("Enter your changes for edit {} item -->".format(answer))
        else:
@@ -47,11 +47,11 @@ while True:
         print(items)
     elif answer == 'remove':
         answer = input("Enter your Item For Delete -->  ").lower()
-        remove_item(items,answer)
+        remove_item(answer)
     elif answer == '':
         continue
     elif answer == 'edit':
         answer = input("Enter your Item For Edit -->  ").lower()
-        edit_item(items,answer)
+        edit_item(answer)
     else:
-        add_item(items,answer)
+        add_item(answer)
