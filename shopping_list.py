@@ -7,6 +7,7 @@ def menu():
     print("Enter 'HELP' to show all instruction in our app ")
     print("Enter 'SHOW' to show all items in our shopping list")
     print("Enter 'REMOVE' to remove item  in our shopping list\n")
+    print("Enter 'EDIT' for edit item  in our shopping list\n")
 #Apend Function 
 def append_list(items,answer):
     if answer not in items:
@@ -19,12 +20,17 @@ def remove_item(items,answer):
             items.remove(answer)
             print("{} deleted from your shopping list ".format(answer))
         else:
-            print("{} not exist on shopping list".format(answer))
+            print("{} not Exist.".format(answer))
+def edit(items,answer):
+       if answer in items:
+           items[items.index(answer)]=input("Enter your changes for edit {} item -->".format(answer))
+       else:
+           print("{} not Exist.".format(answer))
 #main
 items=[]
 menu()
 while True:
-    answer = input("Choose From Menu -->").lower()
+    answer = input("Choose From Menu or Enter your Item -->").lower()
     if answer == 'help':
         menu()
     elif answer == 'done':
@@ -36,5 +42,8 @@ while True:
         remove_item(items,answer)
     elif answer == '':
         continue
+    elif answer == 'edit':
+        answer = input("Enter your Item For Edit -->  ").lower()
+        edit(items,answer)
     else:
         append_list(items,answer)
