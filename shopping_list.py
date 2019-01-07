@@ -12,13 +12,11 @@ def menu():
 
 def init_list_of_item():
     items.append(list())
-##########################################ADD CATEGORY################################################
 
 def add_category(category_name):
     category.append(category_name);
     init_list_of_item()
 
-##########################################ADD ITEM####################################################
 
 def add_item(answer):
     print("Enter Your CATEGORY NAME")
@@ -32,7 +30,6 @@ def add_item(answer):
         print("{} repeated".format(answer))
 
 
-#########################################REMOVE ITEM#################################################
 def remove_item(answer):
     for cat in range(0,len(category)):
         if answer in items[cat]:
@@ -49,7 +46,6 @@ def remove_item(answer):
         else:
            print("{} not exist in your {} list".format(answer,category[cat]))
 
-#######################################EDIT ITEM######################################################
 
 def edit_item(answer):
        if answer in items:
@@ -57,18 +53,17 @@ def edit_item(answer):
        else:
            print("{} not Exist.".format(answer))
 
-########################################SHOW ITEM#####################################################
 
 def show():
+    """
+       show shopping list
+       And category
+    """
     print("My shopping list is")
     for cat  in range(0,len(category)):
         print("###############\nCategory Name: " + category[cat]+"\n###############")
         for item in items[cat]:
             print(item)
-###############################################MAIN###################################################
-#main
-#size=int(input("Enter Your Category Count --> "))
-#items=init_list_of_item(size)
 items=list()
 category=[]
 menu()
