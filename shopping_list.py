@@ -9,6 +9,7 @@ def menu():
     print("Enter 'REMOVE' to remove item  in our shopping list")
     print("Enter 'EDIT' for edit item  in our shopping list\n")
 
+
 def init_list_of_item():
     items.append(list())
 ##########################################ADD CATEGORY################################################
@@ -33,19 +34,20 @@ def add_item(answer):
 
 #########################################REMOVE ITEM#################################################
 def remove_item(answer):
-        if answer in items:
+    for cat in range(0,len(category)):
+        if answer in items[cat]:
             while True:
-                verify=input("are you sure to removing {} item yes/no --> ".format(answer)).lower()
+                verify=input("are you sure to removing {} from  '{}'   yes/no --> ".format(answer,category[cat])).lower()
                 if(verify == 'yes'): 
-                   items.remove(answer)
-                   print("{} deleted from your shopping list ".format(answer))
+                   items[cat].remove(answer)
+                   print("{} deleted from your {} category ".format(answer,category[cat]))
                    break
                 elif (verify == 'no'):
                    break
                 else:
                    print("Please Enter yes/no")
         else:
-           print("{} not exist in your shopping list".format(answer))
+           print("{} not exist in your {} list".format(answer,category[cat]))
 
 #######################################EDIT ITEM######################################################
 
