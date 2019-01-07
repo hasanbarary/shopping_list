@@ -61,7 +61,7 @@ def show():
     print("My shopping list is")
     for cat  in range(0,len(category)):
         print("###############\nCategory Name: " + category[cat]+"\n###############")
-        for item in items[0]:
+        for item in items[cat]:
             print(item)
 ###############################################MAIN###################################################
 #main
