@@ -9,7 +9,6 @@ def menu():
     print("Enter 'REMOVE' to remove item  in our shopping list")
     print("Enter 'EDIT' for edit item  in our shopping list\n")
 
-
 def init_list_of_item():
     items.append(list())
 ##########################################ADD CATEGORY################################################
@@ -60,9 +59,10 @@ def edit_item(answer):
 
 def show():
     print("My shopping list is")
-    for item in items:
-        print(item)
-
+    for cat  in range(0,len(category)):
+        print("###############\nCategory Name: " + category[cat]+"\n###############")
+        for item in items[0]:
+            print(item)
 ###############################################MAIN###################################################
 #main
 #size=int(input("Enter Your Category Count --> "))
