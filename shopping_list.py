@@ -48,10 +48,12 @@ def remove_item(answer):
 
 
 def edit_item(answer):
-       if answer in items:
-           items[items.index(answer)]=input("Enter your changes for edit {} item -->".format(answer))
-       else:
-           print("{} not Exist.".format(answer))
+       for cat in range(0,len(category)):
+          if answer in items[cat]:
+            items[cat][items[cat].index(answer)]=input("Enter your changes for edit {} item form {}--> ".format(answer,cat))
+          else:
+            print("{} not Exist IN CAtegory {} ".format(answer,cat))
+            break
 
 
 def show():
@@ -61,14 +63,14 @@ def show():
     """
     print("My shopping list is")
     for cat  in range(0,len(category)):
-        print("###############\nCategory Name: " + category[cat]+"\n###############")
+        print("-------------------\nCategory Name: " + category[cat]+"\n-------------------")
         for item in items[cat]:
             print(item)
 items=list()
 category=[]
 menu()
 while True:
-    answer = input("Choose From Menu or Enter your Item -->").lower()
+    answer = input("Choose From Menu or Enter your Item -->  ").lower()
     if not answer.isalpha():
         print("Your input Not alpha or have a numeric character")
         continue
