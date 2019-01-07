@@ -10,20 +10,24 @@ def menu():
     print("Enter 'EDIT' for edit item  in our shopping list\n")
 
 
-def init_list_of_item(size):
-    list_of_item = list()
-    for i in range(0,size):
-        list_of_item.append(list())
-    return list_of_item
+def init_list_of_item():
+    items.append(list())
+##########################################ADD CATEGORY################################################
+
+def add_category(category_name):
+    category.append(category_name);
+    init_list_of_item()
 
 ##########################################ADD ITEM####################################################
 
 def add_item(answer):
-    print("Enter Your CATEGORY ID \n 0.citrus \n 1.supermarket \n 2.OTher ")
-    cat=int(input("--> "))
-    if answer not in items[cat]:
-       items[cat].append(answer)
-       print("you added {0} into your list. Now you have {1} items ".format(answer,len(item[cat])))
+    print("Enter Your CATEGORY NAME")
+    cat_name=input("--> ")
+    if not cat_name in category:
+        add_category(cat_name)
+    if answer not in items[category.index(cat_name)]:
+       items[category.index(cat_name)].append(answer)
+       print("you added {0} into your list. Now you have {1} items ".format(answer,len(items[category.index(cat_name)])))
     else:
         print("{} repeated".format(answer))
 
@@ -58,9 +62,13 @@ def show():
     print("My shopping list is")
     for item in items:
         print(item)
+
+###############################################MAIN###################################################
 #main
-size=int(input("Enter Your Category Count --> "))
-items=init_list_of_item(size)
+#size=int(input("Enter Your Category Count --> "))
+#items=init_list_of_item(size)
+items=list()
+category=[]
 menu()
 while True:
     answer = input("Choose From Menu or Enter your Item -->").lower()
@@ -82,5 +90,7 @@ while True:
         elif answer == 'edit':
             answer = input("Enter your Item For Edit -->  ").lower()
             edit_item(answer)
+        elif answer == 'cat':
+            add_category()    
         else:
             add_item(answer)
