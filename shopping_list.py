@@ -7,7 +7,8 @@ def menu():
     print("Enter 'HELP' to show all instruction in our app ")
     print("Enter 'SHOW' to show all items in our shopping list")
     print("Enter 'REMOVE' to remove item  in our shopping list")
-    print("Enter 'EDIT' for edit item  in our shopping list\n")
+    print("Enter 'EDIT' for edit item  in our shopping list")
+    print("Enter 'EDITCAT' for edit category  in our shopping list\n")
 
 
 def init_list_of_item():
@@ -17,6 +18,12 @@ def add_category(category_name):
     category.append(category_name);
     init_list_of_item()
 
+def edit_category():
+    answer=input("Enter your category name for rename it --> ")
+    if answer in category:
+        answer_rename=input("Enter your name for change {} --> ".format(answer))
+        print("category {} rename to {} ".format(category[category.index(answer)],answer_rename))
+        category[category.index(answer)]=answer_rename
 
 def add_item(answer):
     print("Enter Your CATEGORY NAME")
@@ -66,6 +73,8 @@ def show():
         print("-------------------\nCategory Name: " + category[cat]+"\n-------------------")
         for item in items[cat]:
             print(item)
+
+
 items=list()
 category=[]
 menu()
@@ -89,7 +98,7 @@ while True:
         elif answer == 'edit':
             answer = input("Enter your Item For Edit -->  ").lower()
             edit_item(answer)
-        elif answer == 'cat':
-            add_category()    
+        elif answer == 'editcat':
+            edit_category()
         else:
             add_item(answer)
