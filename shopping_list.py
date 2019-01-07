@@ -34,6 +34,10 @@ def edit_item(answer):
            items[items.index(answer)]=input("Enter your changes for edit {} item -->".format(answer))
        else:
            print("{} not Exist.".format(answer))
+def show():
+    print("My shopping list is")
+    for item in items:
+        print(item)
 #main
 items=[]
 menu()
@@ -48,7 +52,7 @@ while True:
         elif answer == 'done':
             break
         elif answer == 'show':
-            print(items)
+            show()
         elif answer == 'remove':
             answer = input("Enter your Item For Delete -->  ").lower()
             remove_item(answer)
