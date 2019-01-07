@@ -8,13 +8,27 @@ def menu():
     print("Enter 'SHOW' to show all items in our shopping list")
     print("Enter 'REMOVE' to remove item  in our shopping list")
     print("Enter 'EDIT' for edit item  in our shopping list\n")
-#Apend Function 
+
+
+def init_list_of_item(size):
+    list_of_item = list()
+    for i in range(0,size):
+        list_of_item.append(list())
+    return list_of_item
+
+##########################################ADD ITEM####################################################
+
 def add_item(answer):
-    if answer not in items:
-        items.append(answer)
-        print("you added {} into your list. Now you have {} items".format(answer,len(items)))
+    print("Enter Your CATEGORY ID \n 0.citrus \n 1.supermarket \n 2.OTher ")
+    cat=int(input("--> "))
+    if answer not in items[cat]:
+       items[cat].append(answer)
+       print("you added {0} into your list. Now you have {1} items ".format(answer,len(item[cat])))
     else:
         print("{} repeated".format(answer))
+
+
+#########################################REMOVE ITEM#################################################
 def remove_item(answer):
         if answer in items:
             while True:
@@ -29,17 +43,24 @@ def remove_item(answer):
                    print("Please Enter yes/no")
         else:
            print("{} not exist in your shopping list".format(answer))
+
+#######################################EDIT ITEM######################################################
+
 def edit_item(answer):
        if answer in items:
            items[items.index(answer)]=input("Enter your changes for edit {} item -->".format(answer))
        else:
            print("{} not Exist.".format(answer))
+
+########################################SHOW ITEM#####################################################
+
 def show():
     print("My shopping list is")
     for item in items:
         print(item)
 #main
-items=[]
+size=int(input("Enter Your Category Count --> "))
+items=init_list_of_item(size)
 menu()
 while True:
     answer = input("Choose From Menu or Enter your Item -->").lower()
